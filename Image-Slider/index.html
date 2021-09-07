@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Image Slider</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding:0;
+		}
+		#container{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			height: 90vh;
+		}
+		#image{
+			width:1200px;
+			height:500px;
+			border-radius: 5px;
+		}
+		#leftBtn,#rightBtn{
+			width: 50px;
+			height: 50px;
+			border-radius: 50px;
+			outline: none;
+			cursor: pointer;
+			border:none;
+			font-size: 2rem;
+			background-color: black;
+			opacity: 0.7;
+			color: white;
+		}
+		#heading{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-size: 4rem;
+			background-color: black;
+			color: white;
+			padding: 3px;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="heading">Image Slider</h1>
+	<div id="container">
+		<button id="leftBtn"><</button>
+		<img id="image" src="https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" >
+		<button id="rightBtn">></button>
+	</div>
+<script type="text/javascript">
+	let image=document.querySelector("#image");
+	let leftBtn=document.querySelector("#leftBtn");
+	let rightBtn=document.querySelector("#rightBtn");
+	var num=0;
+	let imageList = ["https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+	"https://www.w3schools.com/howto/img_forest.jpg",
+	"https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
+	"https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+	"https://images.ctfassets.net/hrltx12pl8hq/4f6DfV5DbqaQUSw0uo0mWi/ff068ff5fc855601751499d694c0111a/shutterstock_376532611.jpg?fit=fill&w=800&h=300"];
+
+
+	rightBtn.addEventListener("click", function moveRight(){
+					num=num+1;
+					if(num>=imageList.length){
+						num=0;
+					}
+					image.src=imageList[num];
+	});
+	leftBtn.addEventListener("click", function moveLeft(){
+		num=num-1;
+		if(num<0){
+			num=imageList.length-1;
+		}
+		image.src=imageList[num];
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>100 Div Challenge</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: black;
+		}
+		#basic{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 90vh;
+			justify-content: center;
+			background-color: black;
+			color: white;
+			font-size: 2rem;
+		}
+		.object{
+			opacity: 0;
+			animation-name: move;
+			animation-duration: 5s;
+			animation-direction: normal;
+			animation-timing-function: ease-in;
+			animation-iteration-count: 2;
+
+
+		}
+		@keyframes move{
+			0%{
+				transform: translate(100px);
+				opacity: 1;
+			}
+			50%{
+				transform: translate(-100px);
+				opacity: 0;
+			}
+			100%{
+				opacity: 1;
+					}
+		}
+	</style>
+</head>
+<body>
+<article id="main">
+	<div id="basic">Color Explosion</div>
+</article>
+<script type="text/javascript">
+	var main=document.querySelector("#main");
+	var width = window.innerWidth;
+var height = window.innerHeight;
+
+
+
+function createDiv()
+{
+	for(i=0;i<99;i++){
+		var div=document.createElement("div");
+		div.className="object";
+		console.log(div);
+		main.appendChild(div);
+		div.style.height=40+"px";
+		div.style.width=40+"px";
+		div.style.borderRadius=50+"px";
+		div.style.position="absolute";
+		div.style.left=Math.random()*(width)+"px";
+		div.style.top=Math.random()*(height)+"px";
+		var color=Math.floor(Math.random()*16777215).toString(16);
+		div.style.background="#"+color;
+		div.style.transistion='10s';
+		div.style.transistionTimingFunction="linear";
+
+}
+}
+requestAnimationFrame(createDiv)
+
+</script>
+</body>
+</html>

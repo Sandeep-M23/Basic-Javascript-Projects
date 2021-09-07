@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Number Counter</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 90vh;
+			background-color:#c98686;
+		}
+		#container{
+			background-color: white;
+			color: #080505;
+			padding: 100px 50px 100px 50px;
+			border-radius: 15px;
+		}
+		#number{
+			font-size: 7rem;
+			margin: 120px;
+
+		}
+		#buttons{
+			margin-top: 100px;
+		}
+		#buttons > .minus{
+			font-size: 2.3rem;
+			width: 50px;
+			border-radius: 50%;
+			border:5px solid #080505;
+			background-color: white;
+			outline: none;
+			cursor: pointer;
+			height: 50px;
+			margin-right: 100px;
+		}
+		#buttons > .plus{
+			font-size: 2.3rem;
+			width: 50px;
+			border-radius: 50%;
+			border:5px solid #080505;
+			background-color: white;
+			outline: none;
+			cursor: pointer;
+			height: 50px;
+			margin-left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<span id="number">0</span>
+		<div id="buttons">
+			<button class="minus">-</button>
+			<button class="plus">+</button>
+		</div>
+	</div>
+<script type="text/javascript">
+	var number=document.querySelector("#number");
+	var plusButton=document.querySelector(".plus");
+	var minusButton=document.querySelector(".minus");
+	var num=0;
+
+	plusButton.addEventListener("click",function add(){
+		num=num+1;
+		number.innerHTML=num;
+	});
+
+	minusButton.addEventListener("click",function minus(){
+		num=num-1;
+		number.innerHTML=num;
+	})
+</script>
+</body>
+</html>
